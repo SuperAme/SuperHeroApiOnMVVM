@@ -11,32 +11,37 @@ class ViewController: UIViewController {
     
     var names = ["ana","juan","pepe"]
     
-    let mainTableView: UITableView = {
-        let tableView = UITableView()
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        return tableView
+    let mainCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.backgroundColor = .orange
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        return collectionView
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        mainTableView.dataSource = self
         setupView()
+        mainCollectionView.dataSource = self
+        mainCollectionView.delegate = self
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        mainTableView.frame = view.bounds
+        mainCollectionView.frame = view.bounds
     }
     
     private func setupView() {
-        view.addSubview(mainTableView)
+        view.addSubview(mainCollectionView)
         view.backgroundColor = .white
         NSLayoutConstraint.activate([
-            mainTableView.topAnchor.constraint(equalTo: view.topAnchor),
-            mainTableView.leftAnchor.constraint(equalTo: view.leftAnchor),
-            mainTableView.rightAnchor.constraint(equalTo: view.rightAnchor),
-            mainTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            mainCollectionView.topAnchor.constraint(equalTo: view.topAnchor),
+            mainCollectionView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            mainCollectionView.rightAnchor.constraint(equalTo: view.rightAnchor),
+            mainCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
 
         ])
     }
@@ -44,17 +49,21 @@ class ViewController: UIViewController {
 
 }
 
-extension ViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return names.count
     }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        var content = cell.defaultContentConfiguration()
-        content.text = names[indexPath.row]
-        cell.contentConfiguration = content
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+        cell.backgroundColor = .systemGray
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: view.frame.size.width/2-10, height: 300)
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 10, left: 5, bottom: 5, right: 5)
     }
 }
 
