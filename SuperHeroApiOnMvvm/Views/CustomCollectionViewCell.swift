@@ -13,31 +13,6 @@ class CustomCollectionViewCell: UICollectionViewCell {
     let publisherLabel = UILabel()
     let heroImage = UIImageView()
     
-//    private let nameLabel: UILabel = {
-//        let label = UILabel()
-//        label.backgroundColor = .yellow
-//        label.text = "No name"
-//        label.textAlignment = .center
-//        label.translatesAutoresizingMaskIntoConstraints = false
-//        return label
-//    }()
-    
-//    private let heroImage: UIImageView = {
-//        let imageView = UIImageView()
-//        imageView.sizeToFit()
-//        imageView.backgroundColor = .systemBlue
-//        imageView.translatesAutoresizingMaskIntoConstraints = false
-//        return imageView
-//    }()
-    
-//    private let publisherLabel: UILabel = {
-//        let label = UILabel()
-//        label.text = "No publisher"
-//        label.backgroundColor = .yellow
-//        label.translatesAutoresizingMaskIntoConstraints = false
-//        return label
-//    }()
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.addSubview(nameLabel)
@@ -51,7 +26,6 @@ class CustomCollectionViewCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-//        let nameLabel = UILabel(frame: CGRect(x: 5, y: 10, width: contentView.frame.size.width-10, height: 50))
         nameLabel.frame = CGRect(x: 5, y: 10, width: contentView.frame.size.width-10, height: 50)
         heroImage.frame = CGRect(x: 5, y: nameLabel.frame.size.height+5, width: contentView.frame.size.width-10, height: 250)
         publisherLabel.frame = CGRect(x: 5, y: heroImage.frame.size.height+50, width: contentView.frame.size.width-10, height: 50)
