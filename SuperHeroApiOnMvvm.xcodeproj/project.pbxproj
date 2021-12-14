@@ -15,6 +15,7 @@
 		9C8D183E27681A7E00F72409 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8D183D27681A7E00F72409 /* WebService.swift */; };
 		9C8D184127681AA800F72409 /* HeroModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8D184027681AA800F72409 /* HeroModel.swift */; };
 		9C8D43602768F746008625D1 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8D435F2768F746008625D1 /* CustomCollectionViewCell.swift */; };
+		9C8D436327690D3F008625D1 /* HeroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8D436227690D3F008625D1 /* HeroViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		9C8D183D27681A7E00F72409 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		9C8D184027681AA800F72409 /* HeroModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroModel.swift; sourceTree = "<group>"; };
 		9C8D435F2768F746008625D1 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
+		9C8D436227690D3F008625D1 /* HeroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 		9C5791B22762DE55007CB60D /* SuperHeroApiOnMvvm */ = {
 			isa = PBXGroup;
 			children = (
+				9C8D436127690D23008625D1 /* ViewModel */,
 				9C8D435E2768F715008625D1 /* Views */,
 				9C8D183F27681A8700F72409 /* Model */,
 				9C8D183C27681A6000F72409 /* Services */,
@@ -95,6 +98,14 @@
 				9C8D435F2768F746008625D1 /* CustomCollectionViewCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		9C8D436127690D23008625D1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9C8D436227690D3F008625D1 /* HeroViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,6 +179,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C5791B82762DE55007CB60D /* ViewController.swift in Sources */,
+				9C8D436327690D3F008625D1 /* HeroViewModel.swift in Sources */,
 				9C8D43602768F746008625D1 /* CustomCollectionViewCell.swift in Sources */,
 				9C5791B42762DE55007CB60D /* AppDelegate.swift in Sources */,
 				9C8D183E27681A7E00F72409 /* WebService.swift in Sources */,

@@ -9,7 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var names = ["ana","juan","pepe"]
+    private var heroListVM: HeroListViewModel!
     
     let mainCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -27,14 +27,7 @@ class ViewController: UIViewController {
         setupView()
         mainCollectionView.dataSource = self
         mainCollectionView.delegate = self
-        if let url = URL(string: "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/all.json") {
-            WebService().getHeroes(url: url) { heroes in
-                DispatchQueue.main.async {
-                    print(heroes)
-                }
-            }
-        }
-        
+        setup()
     }
     
     override func viewDidLayoutSubviews() {
@@ -53,16 +46,46 @@ class ViewController: UIViewController {
 
         ])
     }
-
+    
+    func setup() {
+        if let url = URL(string: "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/all.json") {
+            WebService().getHeroes(url: url) { heroes in
+                if let heroes = heroes {
+                    self.heroListVM = HeroListViewModel(heroes: heroes)
+                    DispatchQueue.main.async {
+                        self.mainCollectionView.reloadData()
+                    }
+                }
+                
+            }
+        }
+    }
 
 }
 
 extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return names.count
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return self.heroListVM == nil ? 0 : self.heroListVM.numberOfSections
     }
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.heroListVM.numberOfItemsInSection(section)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCollectionViewCell.identifier, for: indexPath)
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCollectionViewCell.identifier, for: indexPath) as? CustomCollectionViewCell else {
+            fatalError("CustomCollectionViewCell not found")
+        }
+        let heroVM = self.heroListVM.heroAtIndex(indexPath.row)
+        cell.nameLabel.text = heroVM.name
+        cell.publisherLabel.text = heroVM.publisher
+        if let url = URL(string: heroVM.imageURL) {
+            if let data = try? Data(contentsOf: url) {
+                DispatchQueue.main.async {
+                    cell.heroImage.image = UIImage(data: data)
+                }
+            }
+        }
         cell.backgroundColor = .systemGray
         return cell
     }
