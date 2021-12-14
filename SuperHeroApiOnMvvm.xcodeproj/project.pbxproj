@@ -14,6 +14,7 @@
 		9C5791C02762DE57007CB60D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C5791BE2762DE57007CB60D /* LaunchScreen.storyboard */; };
 		9C8D183E27681A7E00F72409 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8D183D27681A7E00F72409 /* WebService.swift */; };
 		9C8D184127681AA800F72409 /* HeroModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8D184027681AA800F72409 /* HeroModel.swift */; };
+		9C8D43602768F746008625D1 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8D435F2768F746008625D1 /* CustomCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		9C5791C12762DE57007CB60D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9C8D183D27681A7E00F72409 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		9C8D184027681AA800F72409 /* HeroModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroModel.swift; sourceTree = "<group>"; };
+		9C8D435F2768F746008625D1 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 		9C5791B22762DE55007CB60D /* SuperHeroApiOnMvvm */ = {
 			isa = PBXGroup;
 			children = (
+				9C8D435E2768F715008625D1 /* Views */,
 				9C8D183F27681A8700F72409 /* Model */,
 				9C8D183C27681A6000F72409 /* Services */,
 				9C5791B32762DE55007CB60D /* AppDelegate.swift */,
@@ -84,6 +87,14 @@
 				9C8D184027681AA800F72409 /* HeroModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		9C8D435E2768F715008625D1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9C8D435F2768F746008625D1 /* CustomCollectionViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -157,6 +168,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C5791B82762DE55007CB60D /* ViewController.swift in Sources */,
+				9C8D43602768F746008625D1 /* CustomCollectionViewCell.swift in Sources */,
 				9C5791B42762DE55007CB60D /* AppDelegate.swift in Sources */,
 				9C8D183E27681A7E00F72409 /* WebService.swift in Sources */,
 				9C5791B62762DE55007CB60D /* SceneDelegate.swift in Sources */,
