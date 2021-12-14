@@ -27,6 +27,14 @@ class ViewController: UIViewController {
         setupView()
         mainCollectionView.dataSource = self
         mainCollectionView.delegate = self
+        if let url = URL(string: "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/all.json") {
+            WebService().getHeroes(url: url) { heroes in
+                DispatchQueue.main.async {
+                    print(heroes)
+                }
+            }
+        }
+        
     }
     
     override func viewDidLayoutSubviews() {

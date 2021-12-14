@@ -12,6 +12,8 @@
 		9C5791B82762DE55007CB60D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5791B72762DE55007CB60D /* ViewController.swift */; };
 		9C5791BD2762DE57007CB60D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C5791BC2762DE57007CB60D /* Assets.xcassets */; };
 		9C5791C02762DE57007CB60D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C5791BE2762DE57007CB60D /* LaunchScreen.storyboard */; };
+		9C8D183E27681A7E00F72409 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8D183D27681A7E00F72409 /* WebService.swift */; };
+		9C8D184127681AA800F72409 /* HeroModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8D184027681AA800F72409 /* HeroModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		9C5791BC2762DE57007CB60D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9C5791BF2762DE57007CB60D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9C5791C12762DE57007CB60D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9C8D183D27681A7E00F72409 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
+		9C8D184027681AA800F72409 /* HeroModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +58,8 @@
 		9C5791B22762DE55007CB60D /* SuperHeroApiOnMvvm */ = {
 			isa = PBXGroup;
 			children = (
+				9C8D183F27681A8700F72409 /* Model */,
+				9C8D183C27681A6000F72409 /* Services */,
 				9C5791B32762DE55007CB60D /* AppDelegate.swift */,
 				9C5791B52762DE55007CB60D /* SceneDelegate.swift */,
 				9C5791B72762DE55007CB60D /* ViewController.swift */,
@@ -62,6 +68,22 @@
 				9C5791C12762DE57007CB60D /* Info.plist */,
 			);
 			path = SuperHeroApiOnMvvm;
+			sourceTree = "<group>";
+		};
+		9C8D183C27681A6000F72409 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				9C8D183D27681A7E00F72409 /* WebService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		9C8D183F27681A8700F72409 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9C8D184027681AA800F72409 /* HeroModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,7 +158,9 @@
 			files = (
 				9C5791B82762DE55007CB60D /* ViewController.swift in Sources */,
 				9C5791B42762DE55007CB60D /* AppDelegate.swift in Sources */,
+				9C8D183E27681A7E00F72409 /* WebService.swift in Sources */,
 				9C5791B62762DE55007CB60D /* SceneDelegate.swift in Sources */,
+				9C8D184127681AA800F72409 /* HeroModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
